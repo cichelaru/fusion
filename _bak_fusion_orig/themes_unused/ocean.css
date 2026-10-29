@@ -1,3 +1,4 @@
+/* Temă ocean (generată din futuristic.css cu altă paletă) */
 @charset "UTF-8";
 /* ===================================================================
    Fusion · stil futurist (indigo electric + cyan, sticlă și strălucire)
@@ -5,67 +6,67 @@
    scoate "src/styles-futuristic.scss" din angular.json (styles).
    =================================================================== */
 :root {
-  --blue:#5B3DF5;
-  --blue-d:#241A6B;
-  --blue-l:#ECE8FF;
-  --orange:#00C2C7;
-  --orange-d:#009AA3;
-  --orange-l:#E0FAFB;
-  --ink:#14122B;
-  --muted:#6B6A8A;
-  --line:#E1DEF5;
-  --bg:#F3F2FF;
+  --blue:#0369A1;
+  --blue-d:#0C3A5B;
+  --blue-l:#E3F2FB;
+  --orange:#14B8A6;
+  --orange-d:#14B8A6;
+  --orange-l:#E0F7F4;
+  --ink:#0B2233;
+  --muted:#56718A;
+  --line:#D6E6F2;
+  --bg:#EEF7FC;
   --surface:#FFFFFF;
-  --focus:#5B3DF5;
-  --hover:#241A6B;
-  --black:#241A6B;
+  --focus:#0369A1;
+  --hover:#0C3A5B;
+  --black:#0C3A5B;
   --ok:#12B886;
   --err:#E5484D;
-  --border:#B9B4E6;
-  --grad:linear-gradient(135deg,#5B3DF5 0%,#8A4DFF 50%,#00C2C7 100%);
-  --grad-soft:linear-gradient(135deg,rgba(91,61,245,.12),rgba(0,194,199,.12));
-  --glow:0 8px 30px rgba(91,61,245,.18);
-  --glow-strong:0 10px 36px rgba(91,61,245,.35);
+  --border:#A5C8E0;
+  --grad:linear-gradient(135deg,#0369A1 0%,#0EA5E9 50%,#14B8A6 100%);
+  --grad-soft:linear-gradient(135deg,rgba(3,105,161,.12),rgba(20,184,166,.12));
+  --glow:0 8px 30px rgba(3,105,161,.18);
+  --glow-strong:0 10px 36px rgba(3,105,161,.35);
 }
 
 :root[data-theme=dark] {
-  --surface:#15112E;
-  --bg:#0A0816;
-  --ink:#EEEBFF;
-  --muted:#9A97C0;
-  --line:#2B2652;
-  --border:#4A4390;
-  --blue:#8B7CFF;
-  --blue-d:#C4BCFF;
-  --blue-l:#241E52;
-  --focus:#8B7CFF;
-  --hover:#C4BCFF;
-  --black:#3B2F8F;
-  --orange:#22E3E8;
-  --orange-d:#7FF3F6;
-  --orange-l:#0F3340;
+  --surface:#0C1B2A;
+  --bg:#06101A;
+  --ink:#E4F3FF;
+  --muted:#8DB0CC;
+  --line:#1B3A55;
+  --border:#2C5C82;
+  --blue:#38BDF8;
+  --blue-d:#BAE6FD;
+  --blue-l:#0F2E47;
+  --focus:#38BDF8;
+  --hover:#BAE6FD;
+  --black:#0C4A6E;
+  --orange:#2DD4BF;
+  --orange-d:#99F6E4;
+  --orange-l:#0F3A3C;
   --ok:#3DDC97;
   --err:#FF6B72;
   --glow:0 8px 30px rgba(0,0,0,.45);
-  --glow-strong:0 10px 36px rgba(139,124,255,.35);
+  --glow-strong:0 10px 36px rgba(56,189,248,.35);
 }
 
 body {
-  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-family: var(--font);
   background: var(--bg);
-  background-image: radial-gradient(900px 500px at 85% -10%, rgba(91, 61, 245, 0.14), transparent 60%), radial-gradient(700px 420px at -10% 110%, rgba(0, 194, 199, 0.12), transparent 60%);
+  background-image: radial-gradient(900px 500px at 85% -10%, rgba(3,105,161,0.14), transparent 60%), radial-gradient(700px 420px at -10% 110%, rgba(20,184,166,0.12), transparent 60%);
   background-attachment: fixed;
 }
 
 :root[data-theme=dark] body {
-  background-image: radial-gradient(900px 500px at 85% -10%, rgba(139, 124, 255, 0.2), transparent 60%), radial-gradient(700px 420px at -10% 110%, rgba(34, 227, 232, 0.12), transparent 60%);
+  background-image: radial-gradient(900px 500px at 85% -10%, rgba(56,189,248,0.2), transparent 60%), radial-gradient(700px 420px at -10% 110%, rgba(34, 227, 232, 0.12), transparent 60%);
 }
 
 /* sidebar */
 .sidebar, :root[data-theme=dark] .sidebar {
-  background: linear-gradient(180deg, #1B0F63 0%, #12104F 55%, #0B1A4A 100%);
+  background: linear-gradient(180deg, #075985 0%, #0C4A6E 55%, #082F49 100%);
   border-right: 0;
-  box-shadow: 6px 0 30px rgba(20, 10, 80, 0.25);
+  box-shadow: 6px 0 30px rgba(12,74,110,0.25);
   position: sticky;
 }
 
@@ -76,12 +77,12 @@ body {
   right: 0;
   width: 2px;
   height: 100%;
-  background: linear-gradient(180deg, #8A4DFF, #00C2C7);
+  background: linear-gradient(180deg, #0EA5E9, #14B8A6);
   opacity: 0.9;
 }
 
 .sidebar .brand b {
-  background: linear-gradient(90deg, #fff, #9be9ee);
+  background: linear-gradient(90deg, #fff, #99F6E4);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -89,7 +90,7 @@ body {
 }
 
 .flogo {
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.65), 0 0 18px rgba(0, 194, 199, 0.55);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.65), 0 0 18px rgba(20,184,166,0.55);
 }
 
 .sidebar .co-select {
@@ -102,11 +103,11 @@ body {
 }
 
 .sidebar .co-select option {
-  color: #14122B;
+  color: #0B2233;
 }
 
 nav a, .sidebar nav a {
-  color: #c9c6f5;
+  color: #BAE6FD;
   border-radius: 12px;
   transition: background 0.18s, color 0.18s, transform 0.18s;
 }
@@ -120,11 +121,11 @@ nav a, .sidebar nav a {
 .sidebar nav a.active {
   background: var(--grad);
   color: #fff;
-  box-shadow: 0 6px 20px rgba(91, 61, 245, 0.5);
+  box-shadow: 0 6px 20px rgba(3,105,161,0.5);
 }
 
 .sidebar nav .nav-group {
-  color: #7fe7ea;
+  color: #99F6E4;
 }
 
 .sidebar nav a.sub {
@@ -135,12 +136,12 @@ nav a, .sidebar nav a {
 .sidebar nav a.sub.active {
   background: rgba(255, 255, 255, 0.12);
   box-shadow: none;
-  border-left-color: #00E0E6;
+  border-left-color: #2DD4BF;
   color: #fff;
 }
 
 .nav-badge {
-  background: linear-gradient(135deg, #00C2C7, #5B3DF5);
+  background: linear-gradient(135deg, #14B8A6, #0369A1);
 }
 
 /* header */
@@ -155,7 +156,7 @@ nav a, .sidebar nav a {
 
 .avatar {
   background: var(--grad);
-  box-shadow: 0 0 14px rgba(91, 61, 245, 0.5);
+  box-shadow: 0 0 14px rgba(3,105,161,0.5);
 }
 
 .demo-strip, :root[data-theme=dark] .demo-strip {
@@ -172,7 +173,7 @@ nav a, .sidebar nav a {
 .content .theme-toggle button.on, :root[data-theme=dark] .content .theme-toggle button.on {
   background: var(--grad);
   color: #fff;
-  box-shadow: 0 0 12px rgba(91, 61, 245, 0.5);
+  box-shadow: 0 0 12px rgba(3,105,161,0.5);
 }
 
 /* titluri */
@@ -255,7 +256,7 @@ nav a, .sidebar nav a {
 .modal {
   border-top: 1px solid var(--line);
   background: var(--surface);
-  box-shadow: 0 20px 60px rgba(20, 10, 80, 0.45);
+  box-shadow: 0 20px 60px rgba(12,74,110,0.45);
 }
 
 .modal-bg {
@@ -267,7 +268,7 @@ nav a, .sidebar nav a {
   background: var(--grad);
   border-radius: 12px;
   font-weight: 700;
-  box-shadow: 0 6px 18px rgba(91, 61, 245, 0.35);
+  box-shadow: 0 6px 18px rgba(3,105,161,0.35);
   transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
 }
 
@@ -279,11 +280,11 @@ nav a, .sidebar nav a {
 }
 
 .btn.blue {
-  background: linear-gradient(135deg, #5B3DF5, #3F6BFF);
+  background: linear-gradient(135deg, #0369A1, #0284C7);
 }
 
 .btn.blue:hover {
-  background: linear-gradient(135deg, #5B3DF5, #3F6BFF);
+  background: linear-gradient(135deg, #0369A1, #0284C7);
 }
 
 .btn.ghost, :root[data-theme=dark] .btn.ghost {
@@ -311,7 +312,7 @@ nav a, .sidebar nav a {
   background: var(--grad);
   color: #fff;
   border-color: transparent;
-  box-shadow: 0 4px 14px rgba(91, 61, 245, 0.4);
+  box-shadow: 0 4px 14px rgba(3,105,161,0.4);
 }
 
 .subtabs button.on, :root[data-theme=dark] .subtabs button.on {
@@ -324,7 +325,7 @@ nav a, .sidebar nav a {
 .msg.user {
   background: var(--grad);
   border-radius: 18px 18px 4px 18px;
-  box-shadow: 0 6px 18px rgba(91, 61, 245, 0.35);
+  box-shadow: 0 6px 18px rgba(3,105,161,0.35);
 }
 
 :root[data-theme=dark] .msg.user {
@@ -358,7 +359,7 @@ nav a, .sidebar nav a {
 .composer input:focus {
   outline: 0;
   border-color: var(--blue);
-  box-shadow: 0 0 0 4px rgba(91, 61, 245, 0.18);
+  box-shadow: 0 0 0 4px rgba(3,105,161,0.18);
 }
 
 .field input, .field select, .field textarea, .ctrl select {
@@ -368,7 +369,7 @@ nav a, .sidebar nav a {
 .field input:focus, .field select:focus, .field textarea:focus {
   outline: 0;
   border-color: var(--blue);
-  box-shadow: 0 0 0 3px rgba(91, 61, 245, 0.18);
+  box-shadow: 0 0 0 3px rgba(3,105,161,0.18);
 }
 
 .field input.prefilled, .field select.prefilled, :root[data-theme=dark] .field input.prefilled, :root[data-theme=dark] .field select.prefilled {
@@ -404,7 +405,7 @@ nav a, .sidebar nav a {
 }
 
 .chip.sel, .svc input {
-  accent-color: #5B3DF5;
+  accent-color: #0369A1;
 }
 
 /* grafice și progres */
@@ -424,7 +425,7 @@ nav a, .sidebar nav a {
 
 .timeline .st.done:before, .timeline .st.done:after, :root[data-theme=dark] .timeline .st.done:before, :root[data-theme=dark] .timeline .st.done:after {
   background: var(--orange);
-  box-shadow: 0 0 8px rgba(0, 194, 199, 0.7);
+  box-shadow: 0 0 8px rgba(20,184,166,0.7);
 }
 
 .timeline .st:before, .timeline .st:after {
@@ -473,7 +474,7 @@ tbody tr:hover {
 
 /* login */
 .login-screen {
-  background: radial-gradient(900px 600px at 80% 0%, rgba(138, 77, 255, 0.35), transparent 60%), radial-gradient(800px 600px at 0% 100%, rgba(0, 194, 199, 0.3), transparent 60%), #0A0816;
+  background: radial-gradient(900px 600px at 80% 0%, rgba(14,165,233,0.35), transparent 60%), radial-gradient(800px 600px at 0% 100%, rgba(20,184,166,0.3), transparent 60%), #06101A;
 }
 
 .lg-card {
@@ -482,7 +483,7 @@ tbody tr:hover {
 }
 
 :root[data-theme=dark] .lg-card {
-  background: rgba(21, 17, 46, 0.92);
+  background: rgba(12,27,42,0.92);
 }
 
 .lg-card .brand {

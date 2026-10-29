@@ -1,0 +1,32 @@
+  <div class="box">
+    <div class="row-head"><h4 style="margin:0">Cost mediu / comandă · Activitate operativă OPEX</h4><span class="small">{{ src() }}</span></div>
+    <div class="kpis" style="margin:14px 0">
+      @for (k of cost.kpis(); track k.l) {
+        <div class="kpi"><div class="l">{{ k.l }}</div><div class="v" style="font-size:22px">{{ k.v }}</div><div class="s">{{ k.s }}</div></div>
+      }
+    </div>
+    <div class="ctrl">
+      <label>Criteriu <select (change)="dim.set(val($event))">
+        @for (d of dims; track d) { <option [value]="d" [selected]="d === dim()">{{ cost.dimLabel(d) }}</option> }
+      </select></label>
+      <label>Indicator <select (change)="met.set(val($event))">
+        <option value="avg" [selected]="met() === 'avg'">Cost mediu / comandă</option>
+        <option value="v" [selected]="met() === 'v'">Cost total</option>
+        <option value="n" [selected]="met() === 'n'">Număr comenzi</option>
+      </select></label>
+      <label>Companie <select (change)="comp.set(val($event))">
+        <option value="">Toate (ROD1–ROD3)</option><option>ROD1</option><option>ROD2</option><option>ROD3</option>
+      </select></label>
+    </div>
+    @for (r of top(); track r.e) {
+      <div class="cbar"><div class="lab" [title]="r.e">{{ r.e }}</div><div class="bar"><i [style.width.%]="r.pct"></i></div><b>{{ r.txt }}</b></div>
+    }
+    @if (more() > 0) { <div class="small">…și încă {{ more() }} valori</div> }
+    <h4 style="margin:18px 0 6px">Evoluția lunară (cost total, 2026)</h4>
+    <div class="months">
+      @for (m of months(); track m.luna) {
+        <div [title]="m.name + ': ' + m.full"><span>{{ m.short }}</span><i [style.height.%]="m.h"></i>{{ m.name.slice(0, 3) }}.</div>
+      }
+    </div>
+    <p class="small">{{ foot() }}</p>
+  </div>

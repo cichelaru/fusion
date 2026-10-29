@@ -1,0 +1,20 @@
+  <div class="modal-bg" [class.open]="!!state.modal()"><div class="modal">
+    <h3>{{ title() }}</h3>
+    <p class="small" style="margin:0 0 10px">Owner-ul completează o singură dată. Asistentul folosește imediat noul răspuns.</p>
+    <div class="form-grid">
+      <div class="field full"><label>Nevoia / întrebarea</label><input [value]="q()" (input)="onQ($any($event.target).value)"></div>
+      <div class="field"><label>Domeniu</label><select (change)="dom.set($any($event.target).value)">
+        @for (d of domains; track d) { <option [selected]="d === dom()">{{ d }}</option> }
+      </select></div>
+      <div class="field"><label>Cuvinte cheie (separate prin virgulă)</label><input [value]="kw()" (input)="kw.set($any($event.target).value)"></div>
+      <div class="field full"><label>Răspuns / pași</label><textarea [value]="a()" (input)="a.set($any($event.target).value)" placeholder="Ex.: Decontul se depune în maximum 3 zile de la întoarcere, cu documentele justificative..."></textarea></div>
+      <div class="field"><label>Responsabil (rol / echipă)</label><input [value]="r()" (input)="r.set($any($event.target).value)" placeholder="Ex.: Echipa Financiar – Deconturi"></div>
+      <div class="field"><label>Link sau canal</label><input [value]="l()" (input)="l.set($any($event.target).value)" placeholder="Ex.: portal intern › Deconturi"></div>
+      <div class="field full"><label>Leagă de un folder sau document din bibliotecă (opțional)</label>
+        <input [value]="f()" (input)="f.set($any($event.target).value)" list="libFolders" placeholder="Începe să scrii numele folderului, ex.: Oferte Banci">
+        <datalist id="libFolders">@for (x of search.folders(); track x) { <option [value]="x"></option> }</datalist></div>
+    </div>
+    <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:16px">
+      <button class="btn ghost" type="button" (click)="close()">Renunță</button><button class="btn" type="button" (click)="save()">Salvează în baza de cunoștințe</button>
+    </div>
+  </div></div>

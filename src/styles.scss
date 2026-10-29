@@ -263,3 +263,54 @@ color-scheme:dark;
 
 .style-select{margin-left:8px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:6px 12px;font-family:inherit;font-size:13px;cursor:pointer;width:auto;min-width:max-content}
 .style-select:focus{outline:2px solid var(--focus);outline-offset:1px}
+
+.chip-group{margin-top:12px}
+.chip-group h4{margin:0 0 2px;font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted)}
+
+/* cărți de joc: departament pe față, sugestii pe verso */
+.fcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-top:14px}
+.fcard{perspective:900px;height:210px;outline:none}
+.fcard-in{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.2,.8,.2,1)}
+.fcard:hover .fcard-in,.fcard:focus-within .fcard-in,.fcard:focus .fcard-in{transform:rotateY(180deg)}
+.fcard-front,.fcard-back{position:absolute;inset:0;border-radius:14px;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden}
+.fcard-front{background:var(--grad,var(--blue));color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:12px;box-shadow:0 6px 18px rgba(0,0,0,.18);border:2px solid rgba(255,255,255,.35)}
+.fcard-front b{font-size:16px}
+.fcard-front small{opacity:.85;font-size:12px}
+.fcard-back{transform:rotateY(180deg);background:var(--surface);border:2px solid var(--blue);padding:10px;overflow-y:auto}
+.fcard-back .chips{margin:0;gap:6px}
+.fcard-back .chip{font-size:12px;padding:4px 10px;text-align:left}
+@media (prefers-reduced-motion:reduce){.fcard-in{transition:none}}
+
+/* tipografie globală: Inter, mai lizibilă */
+:root{--font:"Inter","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif}
+html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body,button,input,select,textarea{font-family:var(--font)}
+body{font-size:15px;line-height:1.55;letter-spacing:.005em}
+h1,h2,h3,h4{line-height:1.25;letter-spacing:-.01em}
+.chip,.btn,.field label,table{font-size:14px}
+th{font-size:12px}
+
+/* Cererile mele: „în lucru” pe toată lățimea, istoricul mic care se deschide la hover */
+.req-layout{display:flex;flex-direction:row;align-items:flex-start;gap:16px}
+.open-box{flex:1 1 0;min-width:0}
+.open-box .reqs{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px}
+.hist-box{flex:0 0 auto;width:280px;max-width:100%;overflow:hidden;transition:width .35s ease,box-shadow .35s ease;cursor:default;align-self:flex-start;outline:none}
+.hist-box h4{margin:0}
+.hist-box h4 .small{display:block;font-weight:400;margin-top:2px;color:var(--muted)}
+.hist-box .hist-list{max-height:0;opacity:0;overflow:hidden;margin-top:0;transition:max-height .4s ease,opacity .3s ease,margin .3s ease}
+.hist-box:hover,.hist-box:focus-within{width:50%;min-width:280px;box-shadow:0 10px 30px rgba(3,105,161,.18)}
+.hist-box:hover .hist-list,.hist-box:focus-within .hist-list{max-height:900px;opacity:1;margin-top:12px;overflow-y:auto}
+@media(max-width:900px){.req-layout{flex-direction:column}.hist-box,.hist-box:hover,.hist-box:focus-within{width:100%}}
+
+/* notificări în header */
+.notif{position:relative;margin-left:8px}
+.notif-btn{position:relative;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);display:grid;place-items:center;cursor:pointer;padding:0}
+.notif-btn:hover{border-color:var(--blue);color:var(--blue)}
+.notif-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.notif-dot{position:absolute;top:-3px;right:-3px;min-width:17px;height:17px;border-radius:999px;background:var(--orange);color:#fff;font-size:10px;font-weight:700;display:grid;place-items:center;padding:0 4px}
+.notif-backdrop{position:fixed;inset:0;z-index:40}
+.notif-panel{position:absolute;right:0;top:46px;width:340px;max-width:90vw;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:12px;box-shadow:0 14px 40px rgba(0,0,0,.2);z-index:41;overflow:hidden}
+.notif-h{padding:10px 14px;font-weight:700;border-bottom:1px solid var(--line)}
+.notif-item{padding:12px 14px;display:flex;flex-direction:column;gap:10px;font-size:13.5px;border-left:4px solid var(--orange)}
+.notif-item .btn{align-self:flex-start}
+.notif-empty{padding:14px;color:var(--muted);font-size:13px}

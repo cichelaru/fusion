@@ -17,25 +17,7 @@ const hhmm = (s = false) => new Date().toLocaleTimeString('ro-RO', s ? { hour: '
 @Component({
   selector: 'app-systems',
   standalone: true,
-  template: `
-  <div class="kpis">
-    @for (k of kpis(); track k.l) { <div class="kpi"><div class="l">{{ k.l }}</div><div class="v">{{ k.v }}</div><div class="s">{{ k.t }}</div></div> }
-  </div>
-  <div class="box"><h4>Sisteme integrate</h4>
-    <table><thead><tr><th>Sistem</th><th>Rol în aplicație</th><th>Integrare</th><th>Stare</th><th>Ultima verificare</th><th></th></tr></thead><tbody>
-      @for (x of data.systems(); track x.n; let i = $index) {
-        <tr><td><b>{{ x.n }}</b></td><td>{{ x.r }}</td><td>{{ x.i }}</td>
-          <td><span [class]="'dot ' + x.st"></span><span [class]="'pill sys-' + x.st">{{ lab(x.st) }}</span></td>
-          <td>@if (checking() === i) { <span class="spin"></span>se verifică… } @else { {{ last(i, x) }} }</td>
-          <td><button class="btn sm ghost" type="button" [disabled]="x.st === 'plan'" (click)="test(i, x)">Testează</button></td></tr>
-      }
-    </tbody></table>
-  </div>
-  <div class="box" style="margin-top:20px"><h4>Cine vede ce</h4>
-    <table class="matrix"><thead><tr><th>Secțiune</th><th>Angajat</th><th>Owner domeniu</th><th>Administrator</th></tr></thead><tbody>
-      @for (r of matrix; track r[0]) { <tr>@for (c of r; track $index) { <td>{{ c }}</td> }</tr> }
-    </tbody></table>
-  </div>`
+  templateUrl: './systems.component.html'
 })
 export class SystemsComponent {
   data = inject(DataService);

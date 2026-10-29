@@ -8,18 +8,7 @@ import { store } from '../../core/util';
 @Component({
   selector: 'app-users',
   standalone: true,
-  template: `
-  <div class="box"><h4>Utilizatori și roluri</h4>
-    <p class="small" style="margin-top:-6px">Rolul decide ce tab-uri apar. Schimbarea este simulată, se salvează local și se aplică la următoarea autentificare a utilizatorului.</p>
-    <table><thead><tr><th>Utilizator</th><th>E-mail</th><th>Funcția</th><th>Rol</th></tr></thead><tbody>
-      @for (u of data.users(); track u.email) {
-        <tr><td><b>{{ u.nume }}</b></td><td>{{ u.email }}</td><td>{{ u.functie }}</td>
-          <td><select (change)="setRole(u, $any($event.target).value)">
-            @for (r of roles; track r) { <option [value]="r" [selected]="u.role === r">{{ lab[r] }}</option> }
-          </select></td></tr>
-      }
-    </tbody></table>
-  </div>`
+  templateUrl: './users.component.html'
 })
 export class UsersComponent {
   data = inject(DataService);

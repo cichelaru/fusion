@@ -6,42 +6,7 @@ import { StateService, STATUS } from '../../core/state.service';
 @Component({
   selector: 'app-activity',
   standalone: true,
-  template: `
-  <div class="sec-title"><h2>{{ title }}</h2><span class="small">Ultimele 30 de zile (date simulate) + activitatea din această sesiune</span></div>
-  <div class="kpis">
-    @for (k of kpis(); track k.l) {
-      <div class="kpi"><div class="l">{{ k.l }}</div><div class="v">{{ k.v }}</div><div class="s">{{ k.s }}</div></div>
-    }
-  </div>
-  <div class="grid2">
-    <div class="box"><h4>Cele mai frecvente nevoi</h4>
-      @for (r of topRows(); track r.e.id) {
-        <div class="bar-row"><div><span [class]="'tag ' + r.e.domain">{{ r.e.domain }}</span> {{ r.e.title }}</div><div class="bar"><i [style.width.%]="r.pct"></i></div><b>{{ r.n }}</b></div>
-      }
-    </div>
-    <div class="box">
-      <h4>Întrebări fără răspuns (goluri în baza de cunoștințe)</h4>
-      <p class="small" style="margin-top:-6px">Asistentul învață din ce nu știe. Owner-ul adaugă răspunsul o singură dată și de acum îl primesc toți colegii, fără cod nou.</p>
-      <table><thead><tr><th>Întrebare</th><th>Domeniu</th><th>Cereri</th><th></th></tr></thead><tbody>
-        @for (g of state.gaps(); track g.q; let i = $index) {
-          <tr><td>{{ g.q }}</td><td><span [class]="'tag ' + (g.dom === 'Neclasificat' ? 'Altele' : g.dom)">{{ g.dom }}</span></td><td><span class="cnt">{{ g.n }}</span></td>
-            <td><button class="btn sm fill" type="button" (click)="state.modal.set({ gap: g, idx: i })">Adaugă răspuns</button></td></tr>
-        } @empty {
-          <tr><td colspan="4" class="empty">Nu există goluri. Baza de cunoștințe acoperă toate întrebările.</td></tr>
-        }
-      </tbody></table>
-    </div>
-  </div>
-  <div class="box" style="margin-top:20px">
-    <h4>Cererile rutate către echipe</h4>
-    <table><thead><tr><th>ID</th><th>Cerere</th><th>Echipa</th><th>Status</th><th>Termen</th></tr></thead><tbody>
-      @for (r of allReqs(); track r.id) {
-        <tr><td class="id" style="font-family:Consolas,monospace">{{ r.id }}</td>
-          <td>{{ r.title }}@if (r.mine) { <span class="small"> (din sesiunea demo)</span> }</td><td>{{ r.team }}</td>
-          <td><b [style.color]="color(r)">{{ label(r) }}</b></td><td>{{ r.sla }}</td></tr>
-      }
-    </tbody></table>
-  </div>`
+  templateUrl: './activity.component.html'
 })
 export class ActivityComponent {
   state = inject(StateService);

@@ -11,9 +11,7 @@ import { UsersComponent } from '../shared/users.component';
   selector: 'app-admin-activity',
   standalone: true,
   imports: [ActivityComponent],
-  template: `
-  <app-activity title="Dashboard admin · Activitate" />
-  <p style="margin-top:24px"><button class="link-reset" type="button" (click)="state.resetLocal()">Resetează datele salvate local (cereri, intrări noi, roluri)</button></p>`
+  templateUrl: './admin-activity.page.html'
 })
 export class AdminActivityPage { state = inject(StateService); }
 
@@ -21,7 +19,7 @@ export class AdminActivityPage { state = inject(StateService); }
   selector: 'app-admin-systems',
   standalone: true,
   imports: [SystemsComponent],
-  template: `<div class="sec-title"><h2>Dashboard admin · Conexiuni sisteme</h2><span class="small">Vizibil doar pentru administrator</span></div><app-systems />`
+  templateUrl: './admin-systems.page.html'
 })
 export class AdminSystemsPage {}
 
@@ -29,7 +27,7 @@ export class AdminSystemsPage {}
   selector: 'app-admin-users',
   standalone: true,
   imports: [UsersComponent],
-  template: `<div class="sec-title"><h2>Dashboard admin · Utilizatori și roluri</h2><span class="small">Vizibil doar pentru administrator</span></div><app-users />`
+  templateUrl: './admin-users.page.html'
 })
 export class AdminUsersPage {}
 
@@ -37,6 +35,6 @@ export class AdminUsersPage {}
   selector: 'app-admin-kb',
   standalone: true,
   imports: [KbTableComponent],
-  template: `<app-kb-table />`
+  templateUrl: './admin-kb.page.html'
 })
 export class AdminKbPage {}

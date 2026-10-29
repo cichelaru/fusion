@@ -1,0 +1,30 @@
+  <div class="sec-title"><h2>Cererile mele</h2><span class="small">{{ open().length }} în lucru · {{ closed().length }} închise</span><button class="btn" type="button" (click)="newRequest()">+ Cerere nouă</button></div>
+  <div class="req-layout">
+    <div class="box open-box"><h4>În lucru</h4>
+      <div class="reqs">
+        @for (r of open(); track r.id) {
+          @if (r.live) {
+            <div class="req">
+              <div class="top"><div><b>{{ r.title }}</b><div class="id">{{ r.id }} · {{ r.when }}</div></div></div>
+              <div class="timeline">@for (s of list(r.live); track $index) { <div [class]="'st' + ($index <= r.live.st ? ' done' : '')">{{ s }}</div> }</div>
+              <div class="small">Status: <b>{{ list(r.live)[r.live.st] }}</b> · {{ r.team }} · termen {{ r.live.sla }}</div>
+              @if (!r.old) { <div style="margin-top:8px;text-align:right"><button class="btn sm ghost" type="button" title="Doar pentru demonstrație" (click)="state.advance(r.id)">Avansează status (demo)</button></div> }
+            </div>
+          } @else {
+            <div class="req"><div class="top"><div><b>{{ r.title }}</b><div class="id">{{ r.id }} · {{ r.when }}</div></div><span class="pill sys-demo">{{ r.status }}</span></div><div class="small">{{ r.team }}</div></div>
+          }
+        } @empty {
+          <div class="empty">Nicio cerere în lucru.<br>Cererile trimise din asistent apar aici, cu statusul lor.</div>
+        }
+      </div>
+    </div>
+    <div class="box hist-box" tabindex="0"><h4>Istoric <span class="small">({{ closed().length }}) · treci cu mouse-ul pentru detalii</span></h4>
+      <div class="mylist hist-list">
+        @for (r of closed(); track r.id) {
+          <div class="req"><div class="top"><div><b>{{ r.title }}</b><div class="id">{{ r.id }} · {{ r.when }}</div></div><span class="pill sys-ok">{{ r.status }}</span></div><div class="small">{{ r.team }}</div></div>
+        } @empty {
+          <div class="empty">Nicio cerere închisă încă.</div>
+        }
+      </div>
+    </div>
+  </div>

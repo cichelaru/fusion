@@ -48,9 +48,9 @@
   "st": "plan"
  },
  {
-  "n": "Motor AI (LLM)",
+  "n": "Motor de căutare și recunoaștere",
   "r": "Înțelegerea întrebărilor, răspunsuri din documente",
-  "i": "Reguli locale; API planificat",
+  "i": "Reguli și cuvinte-cheie (local)",
   "st": "demo"
  },
  {

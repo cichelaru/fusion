@@ -30,7 +30,8 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/styles-ocean.css"
             ],
             "index": "src/index.html"
           },

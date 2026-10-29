@@ -217,6 +217,13 @@ export function createKb(P: any, h: KbHelpers): any[] {
      {k:'interval',l:'Interval orar',v:()=>'Toată ziua',ro:1},
      {k:'nota',l:'De reținut',v:()=>'Rezervarea e valabilă toată ziua; pentru ziua curentă se face până la 10:00; în ziua rezervării faci check-in.',ro:1,full:1}
    ]},
+ { id:'masaj', domain:'Facility', type:'link', title:'Programare la masaj (Max Relax)',
+   kw:[['masaj',9],['programare masaj',10],['programare la masaj',10],['rezerv masaj',9],['vreau masaj',9],['max relax',9],['maxrelax',9],['sesiune masaj',8],['masaj la birou',8],['relaxare',3]],
+   today:'Intri în platforma Max Relax și alegi o sesiune disponibilă', team:'Max Relax – Facility',
+   highlight:'Sesiunile de masaj se rezervă în platforma Max Relax (client.maxrelax.ro).',
+   answer:'Intri în platformă, apeși „Make an appointment”, alegi ziua în calendar (zilele cu sesiuni sunt marcate „Available”), alegi ora liberă, poți adăuga o observație și apeși „Request appointment”. În „Home” vezi sesiunile disponibile pentru locația ta (dată, interval, locuri libere, locație), iar în „Appointments” programările tale.',
+   sources:[{n:'Platforma Max Relax',u:'https://client.maxrelax.ro/'}],
+   ext:{sys:'Max Relax',url:'https://client.maxrelax.ro/',hint:'Make an appointment → ziua → ora → Observations (opțional) → Request appointment'} },
  { id:'sala_info', domain:'Facility', type:'link', title:'Sala de fitness EnerGym (Day Tower) – program și reguli de rezervare',
    kw:[['programul salii',8],['program sala',7],['programul la sala',8],['cand e deschisa sala',8],['orele salii',7],['cat pot sta la sala',8],['cat pot sta in sala',8]],
    today:'Cauți în FAQ-ul aplicației EnerGym', team:'EnerGym – Day Tower',

@@ -1,0 +1,14 @@
+  <div class="layout" style="grid-template-columns:1fr">
+    <div class="panel">
+      <h3>Întreabă orice: HR, IT și, în curând, celelalte domenii</h3>
+      <div class="chat" #chat (click)="bot.onClick($event)" (change)="bot.onChange($event)" (submit)="bot.onSubmit($event)">
+        @for (m of bot.messages(); track m.id) {
+          <div [class]="'msg ' + m.cls + (m.bare ? ' bare' : '')" [attr.data-mid]="m.id" [innerHTML]="m.safe"></div>
+        }
+      </div>
+      <form class="composer" (submit)="send($event, q)">
+        <input #q autocomplete="off" placeholder="Ex.: Îmi trebuie o adeverință pentru bancă / Ce beneficii am prin CCM?">
+        <button class="btn" type="submit">Trimite</button>
+      </form>
+    </div>
+  </div>

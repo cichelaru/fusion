@@ -11,33 +11,7 @@ const QUICK = ['Am nevoie de o adeverință pentru bancă', 'Vreau să cer conce
 @Component({
   selector: 'app-personal',
   standalone: true,
-  template: `
-  <div class="sec-title"><h2>Bună, {{ first() }}. Dashboardul tău</h2><span class="small">Datele tale personale (simulate)</span></div>
-  <div class="kpis">
-    @for (k of kpis(); track k.l) { <div class="kpi"><div class="l">{{ k.l }}</div><div class="v">{{ k.v }}</div><div class="s">{{ k.s }}</div></div> }
-  </div>
-  <div class="grid2">
-    <div class="box"><h4>Cererile mele</h4>
-      <div class="mylist">
-        @for (r of state.requests(); track r.id) {
-          <div class="req"><div class="top"><div><b>{{ r.title }}</b><div class="id">{{ r.id }} · acum</div></div><span class="pill sys-demo">{{ lab(r) }}</span></div><div class="small">{{ r.team }} · termen {{ r.sla }}</div></div>
-        }
-        @for (r of hist; track r.id) {
-          <div class="req"><div class="top"><div><b>{{ r.title }}</b><div class="id">{{ r.id }} · {{ r.when }}</div></div><span [class]="'pill ' + (r.st === 'În lucru' ? 'sys-demo' : 'sys-ok')">{{ r.st }}</span></div><div class="small">{{ r.team }}</div></div>
-        }
-      </div>
-    </div>
-    <div class="box"><h4>Ce poți face rapid</h4>
-      <p class="small" style="margin-top:-6px">Un clic și asistentul pornește cererea, precompletată cu datele tale.</p>
-      <div class="quick">
-        @for (q of quick(); track q) { <button class="chip" type="button" (click)="go(q)">{{ q }}</button> }
-      </div>
-      <h4 style="margin-top:20px">Profilul meu</h4>
-      <table><tbody>
-        @for (p of prof(); track p[0]) { <tr><td class="small" style="width:35%">{{ p[0] }}</td><td>{{ p[1] }}</td></tr> }
-      </tbody></table>
-    </div>
-  </div>`
+  templateUrl: './personal.component.html'
 })
 export class PersonalComponent {
   state = inject(StateService);

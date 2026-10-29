@@ -7,9 +7,6 @@ import { KbTableComponent } from '../shared/kb-table.component';
   selector: 'app-owner',
   standalone: true,
   imports: [ActivityComponent, CostExplorerComponent, KbTableComponent],
-  template: `
-  <app-activity title="Dashboard owner de domeniu" />
-  <div style="margin-top:20px"><app-cost-explorer /></div>
-  <div style="margin-top:20px"><app-kb-table /></div>`
+  templateUrl: './owner.component.html'
 })
 export class OwnerComponent {}

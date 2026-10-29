@@ -1,4 +1,4 @@
-/* Temă cires (generată din futuristic.css cu altă paletă) */
+/* Temă desert (generată din futuristic.css cu altă paletă) */
 @charset "UTF-8";
 /* ===================================================================
    Fusion · stil futurist (indigo electric + cyan, sticlă și strălucire)
@@ -6,67 +6,67 @@
    scoate "src/styles-futuristic.scss" din angular.json (styles).
    =================================================================== */
 :root {
-  --blue:#DB2777;
-  --blue-d:#831843;
-  --blue-l:#FDE7F1;
-  --orange:#8B5CF6;
-  --orange-d:#8B5CF6;
-  --orange-l:#EFE7FE;
-  --ink:#2A1220;
-  --muted:#8A6075;
-  --line:#F5D9E6;
-  --bg:#FFF4F9;
+  --blue:#A8552B;
+  --blue-d:#5A2E16;
+  --blue-l:#F6EBDD;
+  --orange:#7A8F3C;
+  --orange-d:#7A8F3C;
+  --orange-l:#EEF3DC;
+  --ink:#2A1E14;
+  --muted:#7E6A58;
+  --line:#E8DCCB;
+  --bg:#FAF4EA;
   --surface:#FFFFFF;
-  --focus:#DB2777;
-  --hover:#831843;
-  --black:#831843;
+  --focus:#A8552B;
+  --hover:#5A2E16;
+  --black:#5A2E16;
   --ok:#12B886;
   --err:#E5484D;
-  --border:#E8B4CC;
-  --grad:linear-gradient(135deg,#DB2777 0%,#EC4899 50%,#8B5CF6 100%);
-  --grad-soft:linear-gradient(135deg,rgba(219,39,119,.12),rgba(139,92,246,.12));
-  --glow:0 8px 30px rgba(219,39,119,.18);
-  --glow-strong:0 10px 36px rgba(219,39,119,.35);
+  --border:#D1BCA0;
+  --grad:linear-gradient(135deg,#A8552B 0%,#C77B3E 50%,#7A8F3C 100%);
+  --grad-soft:linear-gradient(135deg,rgba(168,85,43,.12),rgba(122,143,60,.12));
+  --glow:0 8px 30px rgba(168,85,43,.18);
+  --glow-strong:0 10px 36px rgba(168,85,43,.35);
 }
 
 :root[data-theme=dark] {
-  --surface:#25101C;
-  --bg:#15080F;
-  --ink:#FFEAF4;
-  --muted:#C99AB3;
-  --line:#4A1F37;
-  --border:#7A3558;
-  --blue:#F472B6;
-  --blue-d:#FBCFE8;
-  --blue-l:#3B1630;
-  --focus:#F472B6;
-  --hover:#FBCFE8;
-  --black:#9D174D;
-  --orange:#A78BFA;
-  --orange-d:#DDD6FE;
-  --orange-l:#2A1B4A;
+  --surface:#211810;
+  --bg:#120D08;
+  --ink:#F8EEDF;
+  --muted:#B8A48C;
+  --line:#3F3022;
+  --border:#6B5238;
+  --blue:#E0A06A;
+  --blue-d:#F2D3B0;
+  --blue-l:#33261A;
+  --focus:#E0A06A;
+  --hover:#F2D3B0;
+  --black:#8A4524;
+  --orange:#A3B65A;
+  --orange-d:#D9E6A0;
+  --orange-l:#28300F;
   --ok:#3DDC97;
   --err:#FF6B72;
   --glow:0 8px 30px rgba(0,0,0,.45);
-  --glow-strong:0 10px 36px rgba(244,114,182,.35);
+  --glow-strong:0 10px 36px rgba(224,160,106,.35);
 }
 
 body {
-  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-family: var(--font);
   background: var(--bg);
-  background-image: radial-gradient(900px 500px at 85% -10%, rgba(219,39,119,0.14), transparent 60%), radial-gradient(700px 420px at -10% 110%, rgba(139,92,246,0.12), transparent 60%);
+  background-image: radial-gradient(900px 500px at 85% -10%, rgba(168,85,43,0.14), transparent 60%), radial-gradient(700px 420px at -10% 110%, rgba(122,143,60,0.12), transparent 60%);
   background-attachment: fixed;
 }
 
 :root[data-theme=dark] body {
-  background-image: radial-gradient(900px 500px at 85% -10%, rgba(244,114,182,0.2), transparent 60%), radial-gradient(700px 420px at -10% 110%, rgba(34, 227, 232, 0.12), transparent 60%);
+  background-image: radial-gradient(900px 500px at 85% -10%, rgba(224,160,106,0.2), transparent 60%), radial-gradient(700px 420px at -10% 110%, rgba(34, 227, 232, 0.12), transparent 60%);
 }
 
 /* sidebar */
 .sidebar, :root[data-theme=dark] .sidebar {
-  background: linear-gradient(180deg, #9D174D 0%, #831843 55%, #500724 100%);
+  background: linear-gradient(180deg, #8A4524 0%, #5A2E16 55%, #33190B 100%);
   border-right: 0;
-  box-shadow: 6px 0 30px rgba(131,24,67,0.25);
+  box-shadow: 6px 0 30px rgba(90,46,22,0.25);
   position: sticky;
 }
 
@@ -77,12 +77,12 @@ body {
   right: 0;
   width: 2px;
   height: 100%;
-  background: linear-gradient(180deg, #EC4899, #8B5CF6);
+  background: linear-gradient(180deg, #C77B3E, #7A8F3C);
   opacity: 0.9;
 }
 
 .sidebar .brand b {
-  background: linear-gradient(90deg, #fff, #DDD6FE);
+  background: linear-gradient(90deg, #fff, #D9E6A0);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -90,7 +90,7 @@ body {
 }
 
 .flogo {
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.65), 0 0 18px rgba(139,92,246,0.55);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.65), 0 0 18px rgba(122,143,60,0.55);
 }
 
 .sidebar .co-select {
@@ -103,11 +103,11 @@ body {
 }
 
 .sidebar .co-select option {
-  color: #2A1220;
+  color: #2A1E14;
 }
 
 nav a, .sidebar nav a {
-  color: #FBCFE8;
+  color: #F2D3B0;
   border-radius: 12px;
   transition: background 0.18s, color 0.18s, transform 0.18s;
 }
@@ -121,11 +121,11 @@ nav a, .sidebar nav a {
 .sidebar nav a.active {
   background: var(--grad);
   color: #fff;
-  box-shadow: 0 6px 20px rgba(219,39,119,0.5);
+  box-shadow: 0 6px 20px rgba(168,85,43,0.5);
 }
 
 .sidebar nav .nav-group {
-  color: #DDD6FE;
+  color: #D9E6A0;
 }
 
 .sidebar nav a.sub {
@@ -136,12 +136,12 @@ nav a, .sidebar nav a {
 .sidebar nav a.sub.active {
   background: rgba(255, 255, 255, 0.12);
   box-shadow: none;
-  border-left-color: #A78BFA;
+  border-left-color: #A3B65A;
   color: #fff;
 }
 
 .nav-badge {
-  background: linear-gradient(135deg, #8B5CF6, #DB2777);
+  background: linear-gradient(135deg, #7A8F3C, #A8552B);
 }
 
 /* header */
@@ -156,7 +156,7 @@ nav a, .sidebar nav a {
 
 .avatar {
   background: var(--grad);
-  box-shadow: 0 0 14px rgba(219,39,119,0.5);
+  box-shadow: 0 0 14px rgba(168,85,43,0.5);
 }
 
 .demo-strip, :root[data-theme=dark] .demo-strip {
@@ -173,7 +173,7 @@ nav a, .sidebar nav a {
 .content .theme-toggle button.on, :root[data-theme=dark] .content .theme-toggle button.on {
   background: var(--grad);
   color: #fff;
-  box-shadow: 0 0 12px rgba(219,39,119,0.5);
+  box-shadow: 0 0 12px rgba(168,85,43,0.5);
 }
 
 /* titluri */
@@ -256,7 +256,7 @@ nav a, .sidebar nav a {
 .modal {
   border-top: 1px solid var(--line);
   background: var(--surface);
-  box-shadow: 0 20px 60px rgba(131,24,67,0.45);
+  box-shadow: 0 20px 60px rgba(90,46,22,0.45);
 }
 
 .modal-bg {
@@ -268,7 +268,7 @@ nav a, .sidebar nav a {
   background: var(--grad);
   border-radius: 12px;
   font-weight: 700;
-  box-shadow: 0 6px 18px rgba(219,39,119,0.35);
+  box-shadow: 0 6px 18px rgba(168,85,43,0.35);
   transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
 }
 
@@ -280,11 +280,11 @@ nav a, .sidebar nav a {
 }
 
 .btn.blue {
-  background: linear-gradient(135deg, #DB2777, #F472B6);
+  background: linear-gradient(135deg, #A8552B, #C2410C);
 }
 
 .btn.blue:hover {
-  background: linear-gradient(135deg, #DB2777, #F472B6);
+  background: linear-gradient(135deg, #A8552B, #C2410C);
 }
 
 .btn.ghost, :root[data-theme=dark] .btn.ghost {
@@ -312,7 +312,7 @@ nav a, .sidebar nav a {
   background: var(--grad);
   color: #fff;
   border-color: transparent;
-  box-shadow: 0 4px 14px rgba(219,39,119,0.4);
+  box-shadow: 0 4px 14px rgba(168,85,43,0.4);
 }
 
 .subtabs button.on, :root[data-theme=dark] .subtabs button.on {
@@ -325,7 +325,7 @@ nav a, .sidebar nav a {
 .msg.user {
   background: var(--grad);
   border-radius: 18px 18px 4px 18px;
-  box-shadow: 0 6px 18px rgba(219,39,119,0.35);
+  box-shadow: 0 6px 18px rgba(168,85,43,0.35);
 }
 
 :root[data-theme=dark] .msg.user {
@@ -359,7 +359,7 @@ nav a, .sidebar nav a {
 .composer input:focus {
   outline: 0;
   border-color: var(--blue);
-  box-shadow: 0 0 0 4px rgba(219,39,119,0.18);
+  box-shadow: 0 0 0 4px rgba(168,85,43,0.18);
 }
 
 .field input, .field select, .field textarea, .ctrl select {
@@ -369,7 +369,7 @@ nav a, .sidebar nav a {
 .field input:focus, .field select:focus, .field textarea:focus {
   outline: 0;
   border-color: var(--blue);
-  box-shadow: 0 0 0 3px rgba(219,39,119,0.18);
+  box-shadow: 0 0 0 3px rgba(168,85,43,0.18);
 }
 
 .field input.prefilled, .field select.prefilled, :root[data-theme=dark] .field input.prefilled, :root[data-theme=dark] .field select.prefilled {
@@ -405,7 +405,7 @@ nav a, .sidebar nav a {
 }
 
 .chip.sel, .svc input {
-  accent-color: #DB2777;
+  accent-color: #A8552B;
 }
 
 /* grafice și progres */
@@ -425,7 +425,7 @@ nav a, .sidebar nav a {
 
 .timeline .st.done:before, .timeline .st.done:after, :root[data-theme=dark] .timeline .st.done:before, :root[data-theme=dark] .timeline .st.done:after {
   background: var(--orange);
-  box-shadow: 0 0 8px rgba(139,92,246,0.7);
+  box-shadow: 0 0 8px rgba(122,143,60,0.7);
 }
 
 .timeline .st:before, .timeline .st:after {
@@ -474,7 +474,7 @@ tbody tr:hover {
 
 /* login */
 .login-screen {
-  background: radial-gradient(900px 600px at 80% 0%, rgba(236,72,153,0.35), transparent 60%), radial-gradient(800px 600px at 0% 100%, rgba(139,92,246,0.3), transparent 60%), #15080F;
+  background: radial-gradient(900px 600px at 80% 0%, rgba(199,123,62,0.35), transparent 60%), radial-gradient(800px 600px at 0% 100%, rgba(122,143,60,0.3), transparent 60%), #120D08;
 }
 
 .lg-card {
@@ -483,7 +483,7 @@ tbody tr:hover {
 }
 
 :root[data-theme=dark] .lg-card {
-  background: rgba(37,16,28,0.92);
+  background: rgba(33,24,16,0.92);
 }
 
 .lg-card .brand {

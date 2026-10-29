@@ -1,0 +1,33 @@
+  <div class="fl-hero">
+    <div>
+      <span class="fl-kicker">Cum funcționează</span>
+      <h2>De la o întrebare la o cerere rezolvată, într-un singur loc</h2>
+      <p>Colegul scrie ce are nevoie. Asistentul înțelege, răspunde sau pregătește cererea și o trimite la echipa corectă, pe canalul existent.</p>
+    </div>
+  </div>
+
+  <h3 class="fl-h">Fluxul complet</h3>
+  <ol class="fl-steps">
+    @for (st of steps; track st.t; let i = $index) {
+      <li class="fl-step">
+        <span class="fl-num">{{ i + 1 }}</span>
+        <div class="fl-body"><b>{{ st.t }}</b><p>{{ st.d }}@if (st.hl) { <mark>{{ st.hl }}</mark>{{ st.d2 }} }</p></div>
+      </li>
+    }
+  </ol>
+
+  <h3 class="fl-h">Domenii și plan de extindere</h3>
+  <div class="domains fl-domains">
+    @for (d of domains; track d.t) {
+      <div class="dom"><span [class]="'state ' + d.c">{{ d.s }}</span><h4>{{ d.t }}</h4><div class="small">{{ d.d }}</div></div>
+    }
+  </div>
+
+  <h3 class="fl-h">Plan de implementare</h3>
+  <ol class="fl-plan">
+    @for (p of plan; track p[0]) {
+      <li><span class="fl-dot"></span>
+        <div class="fl-card"><b>{{ p[0] }}</b><p>{{ p[1] }}</p><span class="fl-where">{{ p[2] }}</span></div>
+      </li>
+    }
+  </ol>

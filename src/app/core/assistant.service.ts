@@ -81,10 +81,16 @@ export class AssistantService {
   // ---------- mesaj de întâmpinare ----------
   welcome(): void {
     const P = this.auth.profile;
-    const days = Math.round((P.permisExp.getTime() - today.getTime()) / 864e5);
-    this.add('bot', `<div class="proactive"><div><b>Atenție:</b> permisul tău de conducere expiră pe <b>${fmt(P.permisExp)}</b> (în ${days} de zile). Vrei să pregătesc cererea de actualizare?</div>${PRO_BTN}</div>`, { bare: true });
-    const chips = ['Cine se ocupă de avizele de amplasament în Zona Constanța?', 'Vreau să fac un control SSM la PTA 6063, săpătură, contractor ANDREM', 'Rezervă-mi un birou mâine la etajul 7 în Day Tower', 'Vreau un loc la sală mâine la 18', 'Îmi trebuie o adeverință de salariat pentru bancă', 'Plec în delegație la București săptămâna viitoare cu trenul', 'Mi s-a blocat contul de Windows', 'Ce acoperă asigurarea medicală?', 'Cât primesc rambursare pentru ochelari?', 'Unde îmi fac evaluarea internă?', 'Vreau decontul pentru biletul de odihnă', 'Cum raportez o neregulă?', 'Cum scot raportul lunar de pontaj?', 'Cine se ocupă de Knox?', 'Cum decontez o deplasare?', 'Unde parchez mașina la sediul din Constanța?'];
-    this.add('bot', `<p class="lead">Bună, ${esc(P.nume.split(' ').slice(-1)[0])}! Scrie-mi ce ai nevoie, în cuvintele tale. Îți spun cine se ocupă, îți dau pașii sau îți pregătesc cererea deja completată.</p><div class="chips">${chips.map(c => `<span class="chip">${esc(c)}</span>`).join('')}</div>`);
+    const groups = [
+      { dep: 'HR', chips: ['Îmi trebuie o adeverință de salariat pentru bancă', 'Ce acoperă asigurarea medicală?', 'Cât primesc rambursare pentru ochelari?', 'Unde îmi fac evaluarea internă?', 'Vreau decontul pentru biletul de odihnă', 'Cum scot raportul lunar de pontaj?'] },
+      { dep: 'IT', chips: ['Mi s-a blocat contul de Windows', 'Cine se ocupă de Knox?'] },
+      { dep: 'Financiar și Travel', chips: ['Plec în delegație la București săptămâna viitoare cu trenul', 'Cum decontez o deplasare?'] },
+      { dep: 'Facility', chips: ['Rezervă-mi un birou mâine la etajul 7 în Day Tower', 'Vreau un loc la sală mâine la 18', 'Vreau să mă programez la masaj', 'Unde parchez mașina la sediul din Constanța?'] },
+      { dep: 'SSM și Operațional', chips: ['Vreau să fac un control SSM la PTA 6063, săpătură, contractor ANDREM', 'Cine se ocupă de avizele de amplasament în Zona Constanța?'] },
+      { dep: 'Compliance', chips: ['Cum raportez o neregulă?'] },
+    ];
+    const chipsHtml = '<div class="fcards">' + groups.map(g => `<div class="fcard" tabindex="0"><div class="fcard-in"><div class="fcard-front"><b>${esc(g.dep)}</b><small>${g.chips.length} ${g.chips.length === 1 ? 'sugestie' : 'sugestii'}</small></div><div class="fcard-back"><div class="chips">${g.chips.map(c => `<span class="chip">${esc(c)}</span>`).join('')}</div></div></div></div>`).join('') + '</div>';
+    this.add('bot', `<p class="lead">Bună, ${esc(P.nume.split(' ').slice(-1)[0])}! Scrie-mi ce ai nevoie, în cuvintele tale. Îți spun cine se ocupă, îți dau pașii sau îți pregătesc cererea deja completată.</p>${chipsHtml}`, { bare: true });
   }
 
   // ---------- întrebare ----------

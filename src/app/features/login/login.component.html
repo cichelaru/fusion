@@ -1,0 +1,18 @@
+  <div class="login-screen open"><div class="lg-card">
+    <div class="brand"><img class="flogo" alt="Fusion" src="logo.jpg"><b>Fusion</b></div>
+    @if (step() === 1) {
+      <div><h1>Autentificare</h1><p>Folosește contul de companie.</p>
+        <button class="ms-btn" type="button" (click)="step.set(2)">
+          <span class="ms-logo"><i style="background:#F25022"></i><i style="background:#7FBA00"></i><i style="background:#00A4EF"></i><i style="background:#FFB900"></i></span>Autentifică-te cu Microsoft</button></div>
+    } @else {
+      <div><h1>Alege un cont</h1><p>Conturi demo (simulare Microsoft Entra ID)</p>
+        @for (u of data.users(); track u.email) {
+          <button class="acc" type="button" (click)="auth.login(u)">
+            <div class="avatar">{{ ini(u.nume) }}</div>
+            <div><b>{{ u.nume }}</b>@if (u.role === 'owner') {<span class="rolebadge">owner</span>}<br><span class="small">{{ u.email }}</span></div>
+          </button>
+        }
+      </div>
+    }
+    <div class="lg-note">Simulare: nu se trimite nicio parolă. În varianta reală, acest pas este înlocuit de SSO Microsoft (MSAL).</div>
+  </div></div>
