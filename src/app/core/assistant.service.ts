@@ -85,7 +85,7 @@ export class AssistantService {
       { dep: 'HR', chips: ['Îmi trebuie o adeverință de salariat pentru bancă', 'Ce acoperă asigurarea medicală?', 'Cât primesc rambursare pentru ochelari?', 'Unde îmi fac evaluarea internă?', 'Vreau decontul pentru biletul de odihnă', 'Cum scot raportul lunar de pontaj?'] },
       { dep: 'IT', chips: ['Mi s-a blocat contul de Windows', 'Cine se ocupă de Knox?'] },
       { dep: 'Financiar și Travel', chips: ['Plec în delegație la București săptămâna viitoare cu trenul', 'Cum decontez o deplasare?'] },
-      { dep: 'Facility', chips: ['Rezervă-mi un birou mâine la etajul 7 în Day Tower', 'Vreau un loc la sală mâine la 18', 'Vreau să mă programez la masaj', 'Unde parchez mașina la sediul din Constanța?'] },
+      { dep: 'Facility', chips: ['Ce facilități sportive am la Day Tower?', 'Rezervă-mi un birou mâine la etajul 7 în Day Tower', 'Vreau un loc la sală mâine la 18', 'Vreau să mă programez la masaj', 'Unde parchez mașina la sediul din Constanța?'] },
       { dep: 'SSM și Operațional', chips: ['Vreau să fac un control SSM la PTA 6063, săpătură, contractor ANDREM', 'Cine se ocupă de avizele de amplasament în Zona Constanța?'] },
       { dep: 'Compliance', chips: ['Cum raportez o neregulă?'] },
     ];
@@ -148,7 +148,7 @@ export class AssistantService {
       this.add('bot', h, extra);
       return;
     } else if (e.type === 'link') {
-      h += `<p class="lead"><b>${esc(e.title)}</b></p>${e.highlight ? `<div class="card" style="border-left:5px solid var(--orange);font-size:15px"><b>${esc(e.highlight)}</b></div>` : ''}<div class="card">${esc(e.answer)}${e.steps ? `<ol class="steps">${e.steps.map((x: string) => `<li>${esc(x)}</li>`).join('')}</ol>` : ''}</div>
+      h += `<p class="lead"><b>${esc(e.title)}</b></p>${e.highlight ? `<div class="card" style="border-left:5px solid var(--orange);font-size:16.5px"><b>${esc(e.highlight)}</b></div>` : ''}<div class="card">${esc(e.answer)}${e.steps ? `<ol class="steps">${e.steps.map((x: string) => `<li>${esc(x)}</li>`).join('')}</ol>` : ''}</div>
 <div style="margin-top:10px"><a class="btn sm blue" href="${esc(encodeURI(e.ext.url).replace(/%25/g, '%'))}" target="_blank" rel="noopener">Deschide ${esc(e.ext.sys)} ↗</a></div>
 <div class="route">Responsabil: <b>${esc(e.team)}</b></div>${e.sources ? `<div class="small" style="margin-top:6px">📄 Sursa (Biblioteca ta de informații utile): ${e.sources.map((x: any) => `<a href="${esc(encodeURI(x.u))}" target="_blank" rel="noopener">${esc(x.n)}</a>`).join(' · ')}</div>` : ''}`;
     } else if (e.type === 'info') {

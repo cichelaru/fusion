@@ -225,7 +225,7 @@ export function createKb(P: any, h: KbHelpers): any[] {
    sources:[{n:'Platforma Max Relax',u:'https://client.maxrelax.ro/'}],
    ext:{sys:'Max Relax',url:'https://client.maxrelax.ro/',hint:'Make an appointment → ziua → ora → Observations (opțional) → Request appointment'} },
  { id:'sala_info', domain:'Facility', type:'link', title:'Sala de fitness EnerGym (Day Tower) – program și reguli de rezervare',
-   kw:[['programul salii',8],['program sala',7],['programul la sala',8],['cand e deschisa sala',8],['orele salii',7],['cat pot sta la sala',8],['cat pot sta in sala',8]],
+   kw:[['sport',8],['sportul',8],['sporturi',7],['sala de sport',9],['activitati sportive',9],['facilitati sportive',9],['facilitati sport',9],['programul salii',8],['program sala',7],['programul la sala',8],['cand e deschisa sala',8],['orele salii',7],['cat pot sta la sala',8],['cat pot sta in sala',8]],
    today:'Cauți în FAQ-ul aplicației EnerGym', team:'EnerGym – Day Tower',
    highlight:'Sala e deschisă de luni până vineri, între 06:00 și 22:00. O ședință durează maximum 90 de minute.',
    answer:'Poți rezerva în avans sau în aceeași zi, în funcție de locurile disponibile. În aplicație vezi gradul de ocupare pe ore, ca să alegi un interval liber. Regulile complete sunt în regulamentul sălii, iar la prima intrare se semnează declarația pe propria răspundere.',
