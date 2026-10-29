@@ -1,0 +1,46 @@
+[
+ {
+  "nume": "Constantinescu Ștefan",
+  "marca": "013314",
+  "functie": "Tehnician",
+  "departament": "Serviciul Gestiuni Operative",
+  "zona": "Zona MT/JT Constanța",
+  "email": "s.constantinescu@reteleelectrice.ro",
+  "telefon": "0730052245",
+  "role": "admin",
+  "zileCO": 14
+ },
+ {
+  "nume": "Marinescu Elena",
+  "marca": "014220",
+  "functie": "Inginer",
+  "departament": "Serviciul Gestiuni Operative",
+  "zona": "Zona MT/JT Constanța",
+  "email": "e.marinescu@reteleelectrice.ro",
+  "telefon": "0730055566",
+  "role": "angajat",
+  "zileCO": 11
+ },
+ {
+  "nume": "Popescu Andrei",
+  "marca": "012905",
+  "functie": "Specialist IT",
+  "departament": "IT Suport",
+  "zona": "București",
+  "email": "a.popescu@reteleelectrice.ro",
+  "telefon": "0730033344",
+  "role": "owner",
+  "zileCO": 17
+ },
+ {
+  "nume": "Chelaru Ciprian",
+  "marca": "011000",
+  "functie": "Administrator aplicație",
+  "departament": "Digital",
+  "zona": "București",
+  "email": "ci.chelaru@ppcgroup.com",
+  "telefon": "",
+  "role": "admin",
+  "zileCO": 12
+ }
+]

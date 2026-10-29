@@ -1,0 +1,144 @@
+/* ===================================================================
+   Fusion · stil futurist (indigo electric + cyan, sticlă și strălucire)
+   Se încarcă după styles.scss. Pentru a reveni la stilul clasic:
+   scoate "src/styles-futuristic.scss" din angular.json (styles).
+   =================================================================== */
+
+:root{
+  --blue:#5B3DF5; --blue-d:#241A6B; --blue-l:#ECE8FF;
+  --orange:#00C2C7; --orange-d:#009AA3; --orange-l:#E0FAFB;
+  --ink:#14122B; --muted:#6B6A8A; --line:#E1DEF5; --bg:#F3F2FF; --surface:#FFFFFF;
+  --focus:#5B3DF5; --hover:#241A6B; --black:#241A6B; --ok:#12B886; --err:#E5484D; --border:#B9B4E6;
+  --grad:linear-gradient(135deg,#5B3DF5 0%,#8A4DFF 50%,#00C2C7 100%);
+  --grad-soft:linear-gradient(135deg,rgba(91,61,245,.12),rgba(0,194,199,.12));
+  --glow:0 8px 30px rgba(91,61,245,.18);
+  --glow-strong:0 10px 36px rgba(91,61,245,.35);
+}
+:root[data-theme=dark]{
+  --surface:#15112E; --bg:#0A0816; --ink:#EEEBFF; --muted:#9A97C0; --line:#2B2652; --border:#4A4390;
+  --blue:#8B7CFF; --blue-d:#C4BCFF; --blue-l:#241E52; --focus:#8B7CFF; --hover:#C4BCFF; --black:#3B2F8F;
+  --orange:#22E3E8; --orange-d:#7FF3F6; --orange-l:#0F3340; --ok:#3DDC97; --err:#FF6B72;
+  --glow:0 8px 30px rgba(0,0,0,.45); --glow-strong:0 10px 36px rgba(139,124,255,.35);
+}
+
+body{font-family:"Inter","Segoe UI",system-ui,-apple-system,sans-serif;
+  background:var(--bg);
+  background-image:radial-gradient(900px 500px at 85% -10%,rgba(91,61,245,.14),transparent 60%),radial-gradient(700px 420px at -10% 110%,rgba(0,194,199,.12),transparent 60%);
+  background-attachment:fixed}
+:root[data-theme=dark] body{background-image:radial-gradient(900px 500px at 85% -10%,rgba(139,124,255,.20),transparent 60%),radial-gradient(700px 420px at -10% 110%,rgba(34,227,232,.12),transparent 60%)}
+
+/* sidebar */
+.sidebar,:root[data-theme=dark] .sidebar{background:linear-gradient(180deg,#1B0F63 0%,#12104F 55%,#0B1A4A 100%);border-right:0;box-shadow:6px 0 30px rgba(20,10,80,.25);position:sticky}
+.sidebar::after{content:"";position:absolute;top:0;right:0;width:2px;height:100%;background:linear-gradient(180deg,#8A4DFF,#00C2C7);opacity:.9}
+.sidebar .brand b{background:linear-gradient(90deg,#fff,#9be9ee);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:24px}
+.flogo{box-shadow:0 0 0 2px rgba(255,255,255,.65),0 0 18px rgba(0,194,199,.55)}
+.sidebar .co-select{background-color:rgba(255,255,255,.10);color:#fff;border:1px solid rgba(255,255,255,.22);border-radius:12px;backdrop-filter:blur(6px);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23cfe9ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.sidebar .co-select option{color:#14122B}
+nav a,.sidebar nav a{color:#c9c6f5;border-radius:12px;transition:background .18s,color .18s,transform .18s}
+.sidebar nav a:hover{background:rgba(255,255,255,.10);color:#fff;transform:translateX(2px)}
+.sidebar nav a.active{background:var(--grad);color:#fff;box-shadow:0 6px 20px rgba(91,61,245,.5)}
+.sidebar nav .nav-group{color:#7fe7ea}
+.sidebar nav a.sub{border-radius:0 10px 10px 0;border-left:2px solid rgba(255,255,255,.18)}
+.sidebar nav a.sub.active{background:rgba(255,255,255,.12);box-shadow:none;border-left-color:#00E0E6;color:#fff}
+.nav-badge{background:linear-gradient(135deg,#00C2C7,#5B3DF5)}
+
+/* header */
+.content header,:root[data-theme=dark] .content header{background:color-mix(in srgb,var(--surface) 78%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.avatar{background:var(--grad);box-shadow:0 0 14px rgba(91,61,245,.5)}
+.demo-strip,:root[data-theme=dark] .demo-strip{background:var(--grad-soft);color:var(--ink);border-bottom:1px solid var(--line)}
+.content .theme-toggle{border-radius:999px;background:var(--surface)}
+.content .theme-toggle button.on,:root[data-theme=dark] .content .theme-toggle button.on{background:var(--grad);color:#fff;box-shadow:0 0 12px rgba(91,61,245,.5)}
+
+/* titluri */
+.sec-title h2{font-size:24px;font-weight:800;letter-spacing:-.3px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.panel h3,.box h4{color:var(--ink)}
+
+/* carduri de sticlă */
+.panel,.box,.kpi,.card,.flow .node,.dom,.modal,.lg-card{border-radius:18px;border:1px solid var(--line);background:color-mix(in srgb,var(--surface) 88%,transparent);backdrop-filter:blur(10px);box-shadow:var(--glow)}
+.card{border-radius:14px;box-shadow:none}
+.kpi{position:relative;overflow:hidden;border-top:1px solid var(--line);transition:transform .2s,box-shadow .2s}
+.kpi::before{content:"";position:absolute;left:0;top:0;right:0;height:4px;background:var(--grad)}
+.kpi:hover,.dom:hover,.flow .node:hover{transform:translateY(-3px);box-shadow:var(--glow-strong)}
+.kpi:nth-child(2){border-top-color:var(--line)}
+.kpi .v{font-size:32px;font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.flow .node{border-top:1px solid var(--line)}
+.flow .node::before{content:"";display:block;height:3px;border-radius:3px;background:var(--grad);margin:-4px 0 10px}
+.modal{border-top:1px solid var(--line);background:var(--surface);box-shadow:0 20px 60px rgba(20,10,80,.45)}
+.modal-bg{backdrop-filter:blur(4px)}
+
+/* butoane */
+.btn{background:var(--grad);border-radius:12px;font-weight:700;box-shadow:0 6px 18px rgba(91,61,245,.35);transition:transform .15s,box-shadow .15s,filter .15s}
+.btn:hover{background:var(--grad);filter:brightness(1.08);transform:translateY(-1px);box-shadow:var(--glow-strong)}
+.btn.blue{background:linear-gradient(135deg,#5B3DF5,#3F6BFF)}.btn.blue:hover{background:linear-gradient(135deg,#5B3DF5,#3F6BFF)}
+.btn.ghost,:root[data-theme=dark] .btn.ghost{background:transparent;color:var(--blue);border:1px solid var(--blue);box-shadow:none}
+.btn.ghost:hover{background:var(--blue-l);transform:none;box-shadow:none}
+.chip,:root[data-theme=dark] .chip{border-radius:999px;border:1px solid var(--line);background:var(--grad-soft);color:var(--blue);transition:all .15s}
+.chip:hover{background:var(--grad);color:#fff;border-color:transparent;box-shadow:0 4px 14px rgba(91,61,245,.4)}
+.subtabs button.on,:root[data-theme=dark] .subtabs button.on{background:var(--grad);border-color:transparent;color:#fff}
+
+/* chat */
+.msg.user{background:var(--grad);border-radius:18px 18px 4px 18px;box-shadow:0 6px 18px rgba(91,61,245,.35)}
+:root[data-theme=dark] .msg.user{background:var(--grad)}
+.msg.bot{border-radius:18px 18px 18px 4px;background:var(--surface);border:1px solid var(--line)}
+.msg.bare{background:transparent;border:0}
+.proactive{background:var(--grad-soft);border:1px solid var(--line);border-left:5px solid var(--orange);border-radius:14px}
+.composer input{border-radius:14px;background:var(--surface);color:var(--ink)}
+.composer input:focus{outline:0;border-color:var(--blue);box-shadow:0 0 0 4px rgba(91,61,245,.18)}
+.field input,.field select,.field textarea,.ctrl select{border-radius:10px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:0;border-color:var(--blue);box-shadow:0 0 0 3px rgba(91,61,245,.18)}
+.field input.prefilled,.field select.prefilled,:root[data-theme=dark] .field input.prefilled,:root[data-theme=dark] .field select.prefilled{background:var(--orange-l);border-color:var(--orange)}
+.legend,:root[data-theme=dark] .legend{background:var(--orange-l);border-color:var(--orange);color:var(--ink)}
+.ext,:root[data-theme=dark] .ext{background:var(--blue-l);border-color:var(--border)}
+.ok-box,:root[data-theme=dark] .ok-box{background:color-mix(in srgb,var(--ok) 16%,var(--surface));border-color:var(--ok);color:var(--ink)}
+.compare .after,:root[data-theme=dark] .compare .after{background:color-mix(in srgb,var(--ok) 16%,var(--surface));color:var(--ink)}
+.compare .before,:root[data-theme=dark] .compare .before{background:color-mix(in srgb,var(--err) 14%,var(--surface));color:var(--ink)}
+.chip.sel,.svc input{accent-color:#5B3DF5}
+
+/* grafice și progres */
+.bar{background:var(--blue-l);border-radius:999px}
+.bar i,.months i{background:var(--grad);border-radius:999px}
+.months i{border-radius:6px 6px 0 0}
+.timeline .st.done:before,.timeline .st.done:after,:root[data-theme=dark] .timeline .st.done:before,:root[data-theme=dark] .timeline .st.done:after{background:var(--orange);box-shadow:0 0 8px rgba(0,194,199,.7)}
+.timeline .st:before,.timeline .st:after{background:var(--line)}
+
+/* tabele */
+th{color:var(--blue);border-bottom:2px solid var(--line)}
+tbody tr{transition:background .12s}
+tbody tr:hover{background:var(--grad-soft)}
+
+/* etichete și pastile */
+.tag,.pill{border-radius:999px}
+.tag.HR,.state.live,.sys-ok,:root[data-theme=dark] .tag.HR{background:color-mix(in srgb,var(--ok) 18%,var(--surface));color:var(--ok)}
+.tag.IT,.role-owner,.sys-demo,.rolebadge,:root[data-theme=dark] .tag.IT,:root[data-theme=dark] .role-owner,:root[data-theme=dark] .sys-demo{background:var(--blue-l);color:var(--blue)}
+.role-admin{background:var(--grad);color:#fff}
+.toast{background:var(--grad);border-radius:14px;box-shadow:var(--glow-strong)}
+
+/* login */
+.login-screen{background:radial-gradient(900px 600px at 80% 0%,rgba(138,77,255,.35),transparent 60%),radial-gradient(800px 600px at 0% 100%,rgba(0,194,199,.30),transparent 60%),#0A0816}
+.lg-card{background:rgba(255,255,255,.96);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+:root[data-theme=dark] .lg-card{background:rgba(21,17,46,.92)}
+.lg-card .brand{color:var(--ink)}
+.ms-btn,.acc{border-radius:14px}
+.acc:hover,:root[data-theme=dark] .acc:hover{border-color:var(--blue);background:var(--blue-l);box-shadow:var(--glow)}
+
+/* mișcare discretă */
+@keyframes fusion-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+main>*{animation:fusion-in .35s ease both}
+.msg{animation:fusion-in .25s ease both}
+@media (prefers-reduced-motion:reduce){main>*,.msg{animation:none}.kpi,.btn,.chip{transition:none}}
+
+// /* ===== sidebar verde smarald ===== */
+// .sidebar,:root[data-theme=dark] .sidebar{background:linear-gradient(180deg,#0B7A5A 0%,#065F46 55%,#033F30 100%);box-shadow:6px 0 30px rgba(3,63,48,.35)}
+// .sidebar::after{background:linear-gradient(180deg,#34D399,#00C2C7)}
+// .sidebar .brand b{background:linear-gradient(90deg,#fff,#a7f3d0);-webkit-background-clip:text;background-clip:text;color:transparent}
+// .flogo{box-shadow:0 0 0 2px rgba(255,255,255,.65),0 0 18px rgba(52,211,153,.6)}
+// .sidebar nav a{color:#c8f2e1}
+// .sidebar nav a:hover{background:rgba(255,255,255,.12)}
+// .sidebar nav a.active{background:linear-gradient(135deg,#10B981 0%,#059669 55%,#0E9F8E 100%);color:#fff;box-shadow:0 6px 20px rgba(16,185,129,.5)}
+// .sidebar nav .nav-group{color:#6EE7B7}
+// .sidebar nav a.sub{border-left-color:rgba(255,255,255,.2)}
+// .sidebar nav a.sub.active{background:rgba(255,255,255,.14);border-left-color:#6EE7B7}
+// .sidebar .co-select{background-color:rgba(255,255,255,.12);border-color:rgba(255,255,255,.28)}
+// .nav-badge{background:linear-gradient(135deg,#34D399,#0E9F8E)}
+// @media(max-width:900px){.sidebar{border-bottom:0}}

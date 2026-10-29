@@ -1,0 +1,62 @@
+[
+ {
+  "n": "Microsoft Entra ID",
+  "r": "Autentificare SSO și roluri",
+  "i": "OIDC / MSAL",
+  "st": "plan"
+ },
+ {
+  "n": "ServiceNow (Employee Center)",
+  "r": "Cereri HR și IT: adeverințe, tichete",
+  "i": "Link direct (API planificat)",
+  "st": "demo"
+ },
+ {
+  "n": "SAP SuccessFactors",
+  "r": "Concedii, evaluare, date personale",
+  "i": "Link direct (API planificat)",
+  "st": "demo"
+ },
+ {
+  "n": "SharePoint – Biblioteca ta de informații utile",
+  "r": "Căutare în documente (CCM, beneficii, politici)",
+  "i": "Index instantaneu local",
+  "st": "ok"
+ },
+ {
+  "n": "Travel PPC",
+  "r": "Cereri de deplasare",
+  "i": "Link direct",
+  "st": "demo"
+ },
+ {
+  "n": "Knox / MDM",
+  "r": "Telefon de serviciu",
+  "i": "Link direct",
+  "st": "demo"
+ },
+ {
+  "n": "Decont e-HR",
+  "r": "Deconturi și beneficii",
+  "i": "Link direct",
+  "st": "demo"
+ },
+ {
+  "n": "CloudSSM",
+  "r": "Securitate și sănătate în muncă",
+  "i": "Link direct",
+  "st": "plan"
+ },
+ {
+  "n": "Motor AI (LLM)",
+  "r": "Înțelegerea întrebărilor, răspunsuri din documente",
+  "i": "Reguli locale; API planificat",
+  "st": "demo"
+ },
+ {
+  "n": "Exchange / notificări",
+  "r": "Alerte și statusuri pe e-mail",
+  "i": "Graph API",
+  "st": "plan"
+ }
+]

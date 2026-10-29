@@ -1,0 +1,70 @@
+/* PPC Navy: albastru navy + accent portocaliu. Valorile sunt ESTIMATE, nu cele oficiale.
+   Înlocuiește codurile de mai jos cu cele din „ΔΕΗ Brand Guidelines" când le ai. */
+:root{
+  --blue:#0B2A5B; --blue-d:#071B3D; --blue-l:#E6ECF6;
+  --orange:#F39200; --orange-d:#D67F00; --orange-l:#FFF3E0;
+  --ink:#14213A; --muted:#5B6678; --line:#DAE1EC; --bg:#F3F5F9; --surface:#fff;
+  --black:#071B3D; --focus:#0B2A5B; --hover:#071B3D; --ok:#28A745; --err:#D64533; --border:#9AA7BB;
+}
+:root[data-theme=dark]{
+  --surface:#101A2E; --bg:#0A111F; --ink:#E8EDF7; --muted:#9AA8C0; --line:#22314D; --border:#3A4D70;
+  --blue:#0B2A5B; --blue-d:#8FB0E8; --blue-l:#17294A; --focus:#8FB0E8; --hover:#8FB0E8;
+}
+header{border-bottom-color:var(--orange)}
+.sidebar{background:linear-gradient(180deg,#0B2A5B 0%,#071B3D 100%)}
+.sidebar nav a.active{background:var(--orange);color:#fff}
+
+/* ===== întreaga pagină ===== */
+body{background:var(--bg)}
+h1,h2,h3,.title,.card h3,.card h4{color:var(--blue)}
+:root[data-theme=dark] h1,:root[data-theme=dark] h2,:root[data-theme=dark] h3,:root[data-theme=dark] .card h3,:root[data-theme=dark] .card h4{color:#fff}
+a{color:var(--blue)}
+:root[data-theme=dark] a{color:#8FB0E8}
+.content header{background:var(--surface);border-bottom:3px solid var(--orange);box-shadow:0 2px 10px rgba(11,42,91,.08)}
+.avatar{background:var(--blue);color:#fff}
+.demo-strip{background:#FFF6E5;color:#6b4300;border-bottom:1px solid #f3d9b0}
+:root[data-theme=dark] .demo-strip{background:#2A2110;color:#F5C97A;border-bottom-color:#5a431c}
+
+/* butoane, chip-uri, taburi */
+.btn{background:var(--orange);color:#fff}
+.btn:hover{background:var(--orange-d)}
+.btn.blue{background:var(--blue)}.btn.blue:hover{background:var(--blue-d)}
+.btn.ghost{background:transparent;color:var(--blue);border:1px solid var(--blue)}
+:root[data-theme=dark] .btn.ghost{color:#8FB0E8;border-color:#8FB0E8}
+.chip{border-color:var(--blue);color:var(--blue)}
+.chip:hover{background:var(--blue);color:#fff}
+:root[data-theme=dark] .chip{color:#8FB0E8;border-color:#3A4D70}
+:root[data-theme=dark] .chip:hover{background:#17294A;color:#fff}
+.subtabs button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+:root[data-theme=dark] .subtabs button.on{background:#17294A;border-color:#8FB0E8;color:#fff}
+.style-select{border-color:var(--blue)}
+
+/* chat */
+.msg.user{background:var(--blue);color:#fff}
+.msg.bot{background:var(--surface);border-left:4px solid var(--orange)}
+.msg.bare{border-left:0;background:transparent}
+
+/* carduri, KPI, tabele */
+.card{border-top:3px solid var(--blue)}
+.kpi{border-top-color:var(--blue)}.kpi:nth-child(2){border-top-color:var(--orange)}.kpi:nth-child(3){border-top-color:var(--blue)}.kpi:nth-child(4){border-top-color:var(--orange)}
+.kpi .v{color:var(--blue)}
+:root[data-theme=dark] .kpi .v{color:#fff}
+th{background:var(--blue-l);color:var(--blue);border-bottom:2px solid var(--blue)}
+:root[data-theme=dark] th{color:#8FB0E8}
+tbody tr:hover{background:var(--blue-l)}
+.acc:hover{border-color:var(--orange);background:var(--blue-l)}
+
+/* etichete: familie navy + accent portocaliu */
+.tag.IT,.tag.Financiar,.tag.Achiziții,.tag.Juridic,.tag.Compliance,.tag.Altele{background:var(--blue-l);color:var(--blue)}
+.tag.Operațional,.tag.Travel{background:var(--orange-l);color:#8a5200}
+.tag.HR,.tag.Facility{background:#E3F2E9;color:#1d6b40}
+:root[data-theme=dark] .tag.IT,:root[data-theme=dark] .tag.Financiar,:root[data-theme=dark] .tag.Achiziții,:root[data-theme=dark] .tag.Juridic,:root[data-theme=dark] .tag.Compliance,:root[data-theme=dark] .tag.Altele{background:#17294A;color:#8FB0E8}
+
+/* timeline, badge */
+.timeline .st.done:before,.timeline .st.done:after{background:var(--blue)}
+:root[data-theme=dark] .timeline .st.done:before,:root[data-theme=dark] .timeline .st.done:after{background:#8FB0E8}
+.nav-badge{background:var(--orange)}
+
+/* câmpuri */
+input:focus,select:focus,textarea:focus{outline:2px solid var(--blue);outline-offset:1px;border-color:var(--blue)}
+:root[data-theme=dark] input:focus,:root[data-theme=dark] select:focus,:root[data-theme=dark] textarea:focus{outline-color:#8FB0E8}

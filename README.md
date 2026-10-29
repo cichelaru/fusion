@@ -1,59 +1,61 @@
-# Fusion
+# Fusion (Angular, fără backend)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.26.
+Asistent intern care găsește informația în documentele HR/IT/politici și îndrumă colegii către persoana sau formularul potrivit.
+Toate datele sunt locale (fișiere JSON + localStorage). Nu există server de aplicație.
 
-## Development server
-
-To start a local development server, run:
-
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Rulare
 
 ```bash
-ng generate component component-name
+npm install
+npm start          # http://localhost:4200
+npm run build      # rezultat în dist/fusion/browser (se poate servi de orice server static)
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Cere Node 20+ și Angular 19. Rutele folosesc `#` (ex. `/#/asistent`), deci nu e nevoie de redirecturi pe server.
 
-```bash
-ng generate --help
+## Structură
+
+```
+public/
+  data/lib.json       index al celor 1312 documente [nume, folder, fragment, dată]
+  data/cost.json      cubul de cost OPEX (din dashboardul „Cost mediu / comandă unică”)
+  data/users.json     utilizatori demo + rol (angajat / owner / admin)
+  data/systems.json   harta de integrare (Conexiuni sisteme)
+  logo.jpg
+src/app/
+  core/               servicii (fără UI)
+    data.service      încarcă fișierele JSON
+    auth.service      login simulat (sessionStorage), rol, profil
+    guards.ts         authGuard + roleGuard (rutele owner / admin)
+    state.service     contoare, cereri, goluri, intrări adăugate (localStorage)
+    kb.data.ts        baza de cunoștințe (TypeScript, intrările citesc profilul)
+    kb.service        baza de cunoștințe + intrările adăugate de owner
+    search.service    căutare în index
+    cost.service      interogări de cost + răspunsuri pentru chat
+    assistant.service potrivire intenție, răspunsuri, formulare, interacțiuni din chat
+  features/           login, assistant, personal, dashboards (owner, admin), flow, shared
 ```
 
-## Building
+## Roluri
 
-To build the project run:
+| Secțiune | Angajat | Owner | Admin |
+|---|---|---|---|
+| Asistent, Dashboardul meu, Cum funcționează | da | da | da |
+| Întrebări de cost în asistent | nu | da | da |
+| Dashboard owner | nu | da | nu |
+| Dashboard admin (activitate, cost, conexiuni, utilizatori, bază de cunoștințe) | nu | nu | da |
 
-```bash
-ng build
-```
+Pragul pentru costuri: `COST_MIN_RANK` în `core/cost.service.ts` (0 = toți, 1 = owner, 2 = doar admin).
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Date salvate local
 
-## Running unit tests
+`localStorage`: `fusion.requests`, `fusion.kbExtra`, `fusion.roles`. `sessionStorage`: `fusion.user`.
+Din Dashboard admin există butonul „Resetează datele salvate local”.
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Trecerea la un backend mai târziu
 
-```bash
-ng test
-```
+Doar `DataService` (citire) și `StateService` / `AuthService` (scriere, login) ating datele. Se înlocuiesc apelurile la `data/*.json` cu API-uri, iar login-ul simulat cu MSAL (Microsoft Entra ID). Componentele rămân neschimbate.
 
-## Running end-to-end tests
+## Notă
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Proiectul a fost scris fără acces la npm, deci nu a fost compilat cu Angular. Codul TypeScript din `core/` a fost verificat cu `tsc`, iar logica asistentului a fost rulată local. Dacă `ng build` dă erori de șabloane, creează un proiect nou (`ng new fusion --style=scss --routing=false`) și copiază în el `src/` și `public/`, plus secțiunea `assets`/`styles` din `angular.json`.
