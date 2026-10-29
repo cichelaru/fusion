@@ -8,7 +8,7 @@
               <div class="top"><div><b>{{ r.title }}</b><div class="id">{{ r.id }} · {{ r.when }}</div></div></div>
               <div class="timeline">@for (s of list(r.live); track $index) { <div [class]="'st' + ($index <= r.live.st ? ' done' : '')">{{ s }}</div> }</div>
               <div class="small">Status: <b>{{ list(r.live)[r.live.st] }}</b> · {{ r.team }} · termen {{ r.live.sla }}</div>
-              @if (!r.old) { <div style="margin-top:8px;text-align:right"><button class="btn sm ghost" type="button" title="Doar pentru demonstrație" (click)="state.advance(r.id)">Avansează status (demo)</button></div> }
+              <div style="margin-top:8px;text-align:right"><button class="btn sm ghost" type="button" title="Doar pentru demonstrație" (click)="advance(r)">Avansează status (demo)</button></div>
             </div>
           } @else {
             <div class="req"><div class="top"><div><b>{{ r.title }}</b><div class="id">{{ r.id }} · {{ r.when }}</div></div><span class="pill sys-demo">{{ r.status }}</span></div><div class="small">{{ r.team }}</div></div>

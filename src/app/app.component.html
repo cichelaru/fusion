@@ -12,7 +12,7 @@
           </select>
           <nav>
             <a routerLink="/asistent" routerLinkActive="active">Asistent</a>
-            <a routerLink="/cereri" routerLinkActive="active">Cererile mele@if (state.requests().length) { <span class="nav-badge">{{ state.requests().length }}</span> }</a>
+            <a routerLink="/cereri" routerLinkActive="active">Cererile mele@if (state.openCount()) { <span class="nav-badge">{{ state.openCount() }}</span> }</a>
             <a routerLink="/personal" routerLinkActive="active">Dashboardul meu</a>
             @if (auth.role() === 'owner') { <a routerLink="/owner" routerLinkActive="active">Dashboard owner</a> }
             @if (auth.role() === 'admin') {

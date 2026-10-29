@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../core/auth.service';
 import { StateService, STATUS } from '../../core/state.service';
 import { fmt, today } from '../../core/util';
-import { MY_HISTORY as HIST } from '../../core/my-history';
+import { historyFor } from '../../core/my-history';
 
 const QUICK = ['Am nevoie de o adeverință pentru bancă', 'Vreau să cer concediu de odihnă', 'Ce beneficii am prin CCM?', 'Am o problemă cu telefonul de serviciu (Knox)', 'Cerere de deplasare'];
 
@@ -17,7 +17,7 @@ export class PersonalComponent {
   state = inject(StateService);
   private auth = inject(AuthService);
   private router = inject(Router);
-  hist = HIST;
+  hist = computed(() => historyFor(this.auth.role()));
 
   private P = this.auth.profile;
   first = computed(() => (this.auth.user()?.nume || '').split(' ')[1] || this.P.nume);
@@ -26,7 +26,7 @@ export class PersonalComponent {
   kpis = computed(() => {
     this.auth.user();
     const days = Math.round((this.P.permisExp.getTime() - today.getTime()) / 864e5);
-    const open = this.state.requests().length + HIST.filter(x => x.st === 'În lucru').length;
+    const open = this.state.openCount();
     return [
       { l: 'Zile de concediu rămase', v: String(this.P.zileCO ?? 0), s: 'din dreptul anual' },
       { l: 'Cereri deschise', v: String(open), s: 'urmărite într-un singur loc' },

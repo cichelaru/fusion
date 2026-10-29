@@ -1,4 +1,6 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, computed, inject, signal } from '@angular/core';
+import { AuthService } from './auth.service';
+import { historyFor } from './my-history';
 import { store } from './util';
 
 export const STATUS = ['Trimisă', 'Preluată', 'Rezolvată'];
@@ -12,7 +14,24 @@ export class StateService {
   costHits = signal(0);
   reqSeq = 41;
 
+  private auth = inject(AuthService);
   requests = signal<any[]>([]);
+  /** Cererile utilizatorului curent (fiecare utilizator le vede doar pe ale lui). */
+  myRequests = computed(() => { const e = this.auth.user()?.email; return this.requests().filter(r => r.by === e); });
+  /** Progresul cererilor mai vechi (date-exemplu) avansate cu butonul demo: id → index status. */
+  histProgress = signal<Record<string, number>>(store.get<Record<string, number>>('local', 'fusion.histProgress', {}));
+  histStatus(h: any): number { return this.histProgress()[h.id] ?? h.stIdx ?? 1; }
+  advanceHist(id: string, from: number): void {
+    const st = Math.min(STATUS.length - 1, from + 1);
+    this.histProgress.update(m => ({ ...m, [id]: st }));
+    store.set('local', 'fusion.histProgress', this.histProgress());
+    this.toast(id + ': ' + STATUS[st]);
+  }
+  /** Câte cereri sunt încă în lucru (create acum + cele mai vechi, în funcție de rol). */
+  openCount = computed(() => {
+    const live = this.myRequests().filter(r => r.st < (r.statuses || STATUS).length - 1).length;
+    return live + historyFor(this.auth.role()).filter(h => h.st === 'În lucru' && this.histStatus(h) < STATUS.length - 1).length;
+  });
   top = signal<Record<string, number>>({
     medical: 16, zileco: 12, banci: 6, bot: 15, biblioteca: 18, ochelari: 10, evaluare: 7, adeverinta: 31, concediu: 24,
     itacces: 19, knox: 14, pontaj: 12, fluturas: 11, permis: 9, travel: 9, date: 8, salarizare: 6
@@ -54,7 +73,7 @@ export class StateService {
   addRequest(e: any): any {
     this.reqSeq++;
     const id = 'REQ-2026-' + String(this.reqSeq).padStart(4, '0');
-    const r = { id, title: e.title, team: e.team, sla: e.sla, st: e.startSt ?? (e.statuses ? 1 : 0), mine: true, created: new Date(), statuses: e.statuses, done: e.done };
+    const r = { id, title: e.title, team: e.team, sla: e.sla, st: e.startSt ?? (e.statuses ? 1 : 0), mine: true, by: this.auth.user()?.email, created: new Date(), statuses: e.statuses, done: e.done };
     this.requests.update(a => [r, ...a]);
     this.persistRequests();
     return r;
@@ -82,7 +101,7 @@ export class StateService {
 
   /** Resetează datele salvate local (pentru demo curat). */
   resetLocal(): void {
-    ['fusion.requests', 'fusion.kbExtra', 'fusion.roles'].forEach(k => store.remove('local', k));
+    ['fusion.requests', 'fusion.kbExtra', 'fusion.roles', 'fusion.histProgress'].forEach(k => store.remove('local', k));
     location.reload();
   }
 }

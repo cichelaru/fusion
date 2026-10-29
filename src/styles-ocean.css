@@ -885,3 +885,41 @@ select[data-fx]{position:absolute!important;opacity:0!important;pointer-events:n
 
 /* login */
 :root[data-theme=dark] .lg-card{background:rgba(12,27,42,.94);border:1px solid #1B3A55}
+
+/* ===== checkbox ===== */
+input[type=checkbox]{-webkit-appearance:none;appearance:none;position:relative;flex:none;width:20px;height:20px;margin:0;vertical-align:middle;cursor:pointer;
+  background:var(--surface);border:2px solid var(--border);border-radius:6px;padding:0;
+  transition:background-color .15s,border-color .15s,box-shadow .15s,transform .1s}
+input[type=checkbox]::after{content:"";position:absolute;left:50%;top:46%;width:5px;height:10px;border:solid #fff;border-width:0 2.5px 2.5px 0;
+  transform:translate(-50%,-50%) rotate(45deg) scale(0);transition:transform .15s cubic-bezier(.3,1.6,.5,1)}
+input[type=checkbox]:hover{border-color:var(--blue);background:var(--blue-l)}
+input[type=checkbox]:checked{background:linear-gradient(135deg,#0369A1,#0EA5E9);border-color:transparent;box-shadow:0 3px 10px rgba(3,105,161,.35)}
+input[type=checkbox]:checked::after{transform:translate(-50%,-50%) rotate(45deg) scale(1)}
+input[type=checkbox]:active{transform:scale(.92)}
+input[type=checkbox]:focus-visible{outline:0;box-shadow:0 0 0 3px rgba(3,105,161,.28)}
+input[type=checkbox]:disabled{opacity:.5;cursor:not-allowed}
+input[type=checkbox]:indeterminate{background:linear-gradient(135deg,#0369A1,#0EA5E9);border-color:transparent}
+input[type=checkbox]:indeterminate::after{width:10px;height:0;border-width:0 0 2.5px 0;transform:translate(-50%,-50%) scale(1)}
+:root[data-theme=dark] input[type=checkbox]{background:#0A1724;border-color:#2C5C82}
+:root[data-theme=dark] input[type=checkbox]:hover{background:var(--blue-l);border-color:var(--blue)}
+:root[data-theme=dark] input[type=checkbox]:checked{background:linear-gradient(135deg,#0284C7,#14B8A6);border-color:transparent;box-shadow:0 3px 12px rgba(20,184,166,.35)}
+:root[data-theme=dark] input[type=checkbox]:focus-visible{box-shadow:0 0 0 3px rgba(56,189,248,.32)}
+
+/* etichete cu checkbox (servicii, „Bundle monitor”): pastilă care reacționează la bifare */
+label.svc{display:inline-flex;align-items:center;gap:10px;padding:9px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);font-size:14px;cursor:pointer;user-select:none;transition:border-color .15s,background-color .15s,box-shadow .15s}
+label.svc:hover{border-color:var(--blue);background:var(--blue-l)}
+label.svc:has(input:checked){border-color:var(--blue);background:var(--blue-l);color:var(--blue);font-weight:600}
+label.svc:has(input:focus-visible){box-shadow:0 0 0 3px rgba(3,105,161,.22)}
+:root[data-theme=dark] label.svc:has(input:checked){color:#fff;border-color:#38BDF8}
+.svcs{display:flex;flex-wrap:wrap;gap:10px}
+
+/* checkbox: dimensiuni și aspect ferme (suprascriu regulile .field input / .svc input) */
+input[type=checkbox],.field input[type=checkbox],.svc input[type=checkbox],label.svc input[type=checkbox]{
+  display:inline-block!important;box-sizing:border-box!important;
+  width:20px!important;height:20px!important;min-width:20px!important;max-width:20px!important;padding:0!important;margin:0!important;
+  -webkit-appearance:none!important;appearance:none!important;
+  background-color:var(--surface);border:2px solid var(--blue)!important;border-radius:6px!important;box-shadow:none}
+input[type=checkbox]:checked,.field input[type=checkbox]:checked,.svc input[type=checkbox]:checked{background:linear-gradient(135deg,#0369A1,#0EA5E9)!important;border-color:#0369A1!important;box-shadow:0 3px 10px rgba(3,105,161,.35)}
+:root[data-theme=dark] input[type=checkbox],:root[data-theme=dark] .field input[type=checkbox]{background-color:#0A1724;border-color:#38BDF8!important}
+:root[data-theme=dark] input[type=checkbox]:checked{background:linear-gradient(135deg,#0284C7,#14B8A6)!important;border-color:#14B8A6!important}
+input[type=checkbox]::after{display:block}

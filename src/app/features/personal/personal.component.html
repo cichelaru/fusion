@@ -5,10 +5,10 @@
   <div class="grid2">
     <div class="box"><h4>Cererile mele</h4>
       <div class="mylist">
-        @for (r of state.requests(); track r.id) {
+        @for (r of state.myRequests(); track r.id) {
           <div class="req"><div class="top"><div><b>{{ r.title }}</b><div class="id">{{ r.id }} · acum</div></div><span class="pill sys-demo">{{ lab(r) }}</span></div><div class="small">{{ r.team }} · termen {{ r.sla }}</div></div>
         }
-        @for (r of hist; track r.id) {
+        @for (r of hist(); track r.id) {
           <div class="req"><div class="top"><div><b>{{ r.title }}</b><div class="id">{{ r.id }} · {{ r.when }}</div></div><span [class]="'pill ' + (r.st === 'În lucru' ? 'sys-demo' : 'sys-ok')">{{ r.st }}</span></div><div class="small">{{ r.team }}</div></div>
         }
       </div>
